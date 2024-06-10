@@ -14,9 +14,14 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         $img = $data['img'];
 
         $isAdded = $post->addPost($heading,$shortDesc,$desc,$img);
-
     }
-
+}
+if($_SERVER['REQUEST_METHOD']=="GET"){
+   
+    if(str_contains($_SERVER['REQUEST_URI'],"/get-all")){
+        
+        $post->getAllPosts();
+    }
 }
 
 ?>

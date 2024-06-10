@@ -34,20 +34,7 @@
                         <img src="../assets/images/icon.png" alt="" class="icon">
                         <p>Viktor</p>
                     </div>
-                    <button>Read full article</button>
-                </div>
-            </div>
-
-            <div class="post">
-                <img src="../assets/images/pexels-joshsorenson-1154505.jpg" alt="">
-                <div class="post-txt">
-                    <h1>The Allure of the Sea: A Journey to Coastal Wonders</h1>
-                    <p>There's something intrinsically captivating about the sea. Its vast, seemingly endless expanse, the rhythmic ebb and flow.</p>
-                    <div>
-                        <img src="../assets/images/icon.png" alt="" class="icon">
-                        <p>Viktor</p>
-                    </div>
-                    <button>Read full article</button>
+                    <button class="read-more-btn" id="67">Read full article</button>
                 </div>
             </div>
 
@@ -56,5 +43,40 @@
     </div>
 
     <script src="../assets/script.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async (event) => {
+            
+            let url = "http://localhost/blog-app/backend/index.php/get-all";
+            
+            let postsHolder = document.querySelector('.posts');
+
+            try {
+
+                const response = await fetch(url);
+
+                if (!response.ok) {throw new Error('Error');}
+
+                const allPostsData = await response.json();
+
+
+                
+                
+                
+
+                allPostsData.forEach(post => {
+                    console.log(post);
+                    var newHTML = "<div class='post'><img src='../assets/images/"+post[4]+"'> <div class='post-txt'><h1>"+post[1]+"</h1><p>"+post[2]+"</p><div><img src='../assets/images/icon.png' class='icon'><p>Viktor</p></div><button class='read-more-btn' id='"+post[0]+"'>Read full article</button></div></div>";
+                    postsHolder.innerHTML += newHTML;
+                });
+
+            } catch (error) {
+            console.error('Error:', error);
+            }
+
+
+        });
+    </script>
+
 </body>
 </html>
