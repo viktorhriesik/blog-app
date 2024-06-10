@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <title>Add post</title>
+</head>
+<body>
+    <div  class="add-post-backg">
+        <nav>
+            <img src="../assets/images/logo.png" alt="logo">
+            
+            <div>
+                <a>Log out</a>
+            </div>
+        </nav>
+
+        <div class="holder">
+            <h2>Add new Post</h2>
+            <form method="post" enctype="multipart/form-data" class ="add-post-form" id="add-post-form">
+                <input type="text" placeholder="Heading" id="heading" required>
+                <input type="text" placeholder="Short desription" id="shortDesc" required>
+                <textarea type="text" placeholder="Post text" id="desc" required></textarea>
+                <label for="">Add image</label>
+                <input type="file" accept="image/*"  id="imageInput" required>
+                <button type="submit">Post</button>
+            </form>
+        </div>
+    </div>
+        <script src="../assets/script.js"></script>
+</body>
+</html>
