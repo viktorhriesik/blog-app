@@ -49,7 +49,7 @@
 
                 allPostsData.forEach(post => {
                     console.log(post);
-                    var newHTML = "<div class='post'><img src='../assets/images/"+post[4]+"'> <div class='post-txt'><h1>"+post[1]+"</h1><p>"+post[2]+"</p><div><img src='../assets/images/icon.png' class='icon'><p>Viktor</p></div><button class='read-more-btn' id='"+post[0]+"'>Read full article</button></div></div>";
+                    var newHTML = "<div class='post'><img src='../assets/images/"+post[4]+"'> <div class='post-txt'><h1>"+post[1]+"</h1><p>"+post[2]+"</p><div><h6>Viktor</h6></div><button class='read-more-btn' id='"+post[0]+"'>Read full article</button></div></div>";
                     postsHolder.innerHTML += newHTML;
                 });
 

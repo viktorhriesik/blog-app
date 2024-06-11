@@ -19,20 +19,31 @@
         <h3>Log out</h3>
     </nav>
 
-    <div class="post-holder">
+    <div class="post-holder" id="post-holder">
         <div class="article">
-            <img src="../assets/images/pexels-joshsorenson-1154505.jpg" alt="">
-            <h1>The Allure of the Sea: A Journey to Coastal Wonders</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa esse corrupti, similique rerum vel dicta alias, eius neque perferendis asperiores temporibus quaerat dolor atque hic nostrum omnis delectus perspiciatis quo!</p>
-                <div class="author">
-                    <img src="../assets/images/icon.png" alt="" class="icon">
-                    <p>Viktor</p>
-                </div>
+            <div class="article-content">
+                <img src="../assets/images/pexels-joshsorenson-1154505.jpg" alt="">
+                <h1>The Allure of the Sea: A Journey to Coastal Wonders</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa esse corrupti, similique rerum vel dicta alias, eius neque perferendis asperiores temporibus quaerat dolor atque hic nostrum omnis delectus perspiciatis quo!</p>
+               
             </div>
-
-        
+            
+             <div class="author">
+                <img src="../assets/images/icon.png" alt="" class="icon">
+                <p>Viktor</p>
+            </div>
+        </div>  
     </div>
+<script>
+     document.addEventListener('DOMContentLoaded', (event) => {
 
+        let postHolder = document.getElementById('post-holder');
+
+        var newHTML = "<h1>assssssssssda</h1>";
+        postsHolder.innerHTML += newHTML;
+
+     })
+</script>
    
 </body>
 </html>
