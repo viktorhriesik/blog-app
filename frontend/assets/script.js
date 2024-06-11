@@ -3,15 +3,7 @@ const logInForm = document.getElementById('log-in-form');
 const registerForm = document.getElementById('register-form');
 const addPostForm = document.getElementById('add-post-form');
 const addPostBtn = document.getElementById('add-post-btn');
-var articleBtn = document.querySelectorAll('.read-more-btn');
 
-articleBtn.forEach(function(button) {
-  button.addEventListener('click', function() {
-
-    console.log("Button clicked. Id: " + this.id);
-   
-  });
-});
 
 function setSessionCookie(name, value, days) {
   var expires = "";

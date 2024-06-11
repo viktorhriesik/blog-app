@@ -16,11 +16,22 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         $isAdded = $post->addPost($heading,$shortDesc,$desc,$img);
     }
 }
+
+
 if($_SERVER['REQUEST_METHOD']=="GET"){
    
     if(str_contains($_SERVER['REQUEST_URI'],"/get-all")){
         
         $post->getAllPosts();
+    }
+
+    if(str_contains($_SERVER['REQUEST_URI'],"/get-post")){
+        $status = array("status"=>false);
+        echo "true";
+        if(isset($_GET['id']))
+        {
+         //echo $_GET['id'];
+        }
     }
 }
 
