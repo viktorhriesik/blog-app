@@ -8,13 +8,19 @@
 </head>
 <body>
     <div  class="add-post-backg">
-        <nav>
-            <img src="../assets/images/logo.png" alt="logo">
-            
-            <div>
-                <a>Log out</a>
-            </div>
-        </nav>
+        <div class="nav-holder">
+            <nav class="navigation">
+                <img src="../assets/images/logo.png" alt="logo">
+                
+                <div class="links">
+                    <a href="home.html" id="explore">Explore</a>
+                    <a id="my-blog">My blog</a>
+                    <a id="add-post" href="addPost.html">Add Post</a>
+                </div>
+        
+                <h3>Log out</h3>
+            </nav>
+        </div>
 
         <div class="holder">
             <h2>Add new Post</h2>
@@ -28,6 +34,13 @@
             </form>
         </div>
     </div>
+    <script>
+         document.addEventListener('DOMContentLoaded', async (event) => {
+            
+            let epxlore = document.getElementById('add-post');
+            epxlore.setAttribute('style', ' text-decoration: overline;');
+         })
+    </script>
         <script src="../assets/script.js"></script>
 </body>
 </html>

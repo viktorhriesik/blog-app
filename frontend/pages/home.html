@@ -7,18 +7,19 @@
     <title>Blog</title>
 </head>
 <body>
-    <nav class="navigation">
-        <img src="../assets/images/logo.png" alt="logo">
-        
-        <div class="links">
-            <a href="home.html">Explore</a>
-            <a>My Blog</a>
-            <a class="add" href="addPost.html">Add Post</a>
-        </div>
-
-        <h3>Log out</h3>
-    </nav>
-
+    <div class="nav-holder">
+        <nav class="navigation">
+            <img src="../assets/images/logo.png" alt="logo">
+            
+            <div class="links">
+                <a href="home.html" id="explore">Explore</a>
+                <a id="my-blog">My blog</a>
+                <a class="add" href="addPost.html">Add Post</a>
+            </div>
+    
+            <h3>Log out</h3>
+        </nav>
+    </div>
     
 
     <div class="posts-holder">
@@ -35,6 +36,10 @@
     <script>
         document.addEventListener('DOMContentLoaded', async (event) => {
             
+            let epxlore = document.getElementById('explore');
+            epxlore.setAttribute('style', ' text-decoration: overline;');
+        
+
             let url = "http://localhost/blog-app/backend/index.php/get-all";
             
             let postsHolder = document.querySelector('.posts');

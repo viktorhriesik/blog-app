@@ -7,25 +7,26 @@
     <title>Blog</title>
 </head>
 <body>
-    <nav class="navigation">
-        <img src="../assets/images/logo.png" alt="logo">
-        
-        <div class="links">
-            <a href="home.html">Explore</a>
-            <a>My Blog</a>
-            <a class="add" href="addPost.html">Add Post</a>
-        </div>
-
-        <h3>Log out</h3>
-    </nav>
+    <div class="nav-holder">
+        <nav class="navigation">
+            <img src="../assets/images/logo.png" alt="logo">
+            
+            <div class="links">
+                <a href="home.html">Explore</a>
+                <a>My Blog</a>
+                <a class="add" href="addPost.html">Add Post</a>
+            </div>
+    
+            <h3>Log out</h3>
+        </nav>
+    </div>
 
     <div class="post-holder" id="post-holder">
         <div class="article">
             <div class="article-content">
-                <img src="../assets/images/pexels-joshsorenson-1154505.jpg" alt="">
                 <h1>The Allure of the Sea: A Journey to Coastal Wonders</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa esse corrupti, similique rerum vel dicta alias, eius neque perferendis asperiores temporibus quaerat dolor atque hic nostrum omnis delectus perspiciatis quo!</p>
-               
+                <img src="../assets/images/pexels-joshsorenson-1154505.jpg" alt="">
+                <p id="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa esse corrupti, similique rerum vel dicta alias, eius neque perferendis asperiores temporibus quaerat dolor atque hic nostrum omnis delectus perspiciatis quo!</p>
             </div>
             
              <div class="author">
@@ -34,13 +35,43 @@
             </div>
         </div>  
     </div>
+
+
 <script>
-     document.addEventListener('DOMContentLoaded', (event) => {
+     document.addEventListener('DOMContentLoaded', async (event) => {
+
 
         let postHolder = document.getElementById('post-holder');
+        let postImgEl = postHolder.querySelector('img');
+        let headingEl = postHolder.querySelector('h1');
+        let postDesc = postHolder.querySelector('p');
 
-        var newHTML = "<h1>assssssssssda</h1>";
-        postsHolder.innerHTML += newHTML;
+        var params = new URLSearchParams(window.location.search);
+        var postId = params.get('id');
+        console.log(postId);
+
+        let url = "http://localhost/blog-app/backend/index.php/get-post?id="+postId;
+            
+
+        try {
+
+            const response = await fetch(url);
+
+            if (!response.ok) {throw new Error('Error');}
+
+            const data = await response.json();
+
+            console.log(data);
+
+            if(data!==null){
+                headingEl.textContent = data[0][1];
+                postDesc.textContent =data[0][3];
+
+            }
+
+        } catch (error) {
+            console.error('Error:', error);
+        }
 
      })
 </script>

@@ -43,7 +43,7 @@ class Post{
         if($result->num_rows==1){
             $result = $result->fetch_all(); 
             $json = json_encode($result);
-           // echo $json;  
+            return $json;  
         }
         
     }
