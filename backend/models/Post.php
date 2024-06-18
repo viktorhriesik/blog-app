@@ -45,7 +45,21 @@ class Post{
             $json = json_encode($result);
             return $json;  
         }
+      
         
+    }
+    public function getAllUserPosts($user_id){
+
+        $sql = "SELECT * FROM posts WHERE user_id=?";
+        $run = $this->conn->prepare($sql);
+        $run->bind_param("s",$user_id);
+        $run->execute();
+
+        $result = $run->get_result();
+        $result = $result->fetch_all(); 
+        $json = json_encode($result);
+        echo $json; 
+        //echo "true";
     }
 }
 

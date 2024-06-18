@@ -43,6 +43,22 @@ class User{
         return true;
     }
 
+    public function getName($user_id){
+        echo "true";
+        /*$sql = "SELECT name FROM users WHERE user_id = ?";
+        $run = $this->conn->prepare($sql);
+        $run->bind_param("s",$user_id);
+        $run->execute();
+
+        $result = $run->get_result();
+        if($result->num_rows>0){
+            $result = $result->fetch_assoc();
+           
+            //return $result;
+        }
+        //return 0;*/
+    }
+
 
 }
 ?>

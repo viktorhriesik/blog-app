@@ -7,6 +7,33 @@
     <title>Blog</title>
 </head>
 <body>
-    
+    <h1>home</h1>
+    <script>
+        document.addEventListener('DOMContentLoaded', async (event) => 
+        {
+                function getSessionCookie(name) {
+                const cookieString = document.cookie;
+                const cookies = cookieString.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Check if this cookie is the one we're looking for
+                    if (cookie.startsWith(name + '=')) {
+                        return cookie.substring(name.length + 1);
+                    }
+                }
+                // Cookie not found
+                return null;
+                }
+
+                let user_id=getSessionCookie("user_id");    
+                
+                console.log(user_id);
+                if(user_id!=null){
+                    window.location.href="pages/home.html";    
+                }else{
+                    window.location.href="*pages/login.html"; 
+                }
+        })
+    </script>
 </body>
 </html>

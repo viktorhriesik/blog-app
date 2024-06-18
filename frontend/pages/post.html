@@ -17,7 +17,7 @@
                 <a class="add" href="addPost.html">Add Post</a>
             </div>
     
-            <h3>Log out</h3>
+            <h3 id="log-out" class="log-out">Log out</h3>
         </nav>
     </div>
 
@@ -25,13 +25,15 @@
         <div class="article">
             <div class="article-content">
                 <h1>The Allure of the Sea: A Journey to Coastal Wonders</h1>
-                <img src="../assets/images/pexels-joshsorenson-1154505.jpg" alt="">
+                <img src="" alt="post image">
                 <p id="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa esse corrupti, similique rerum vel dicta alias, eius neque perferendis asperiores temporibus quaerat dolor atque hic nostrum omnis delectus perspiciatis quo!</p>
             </div>
             
              <div class="author">
+                <p>author</p>
                 <img src="../assets/images/icon.png" alt="" class="icon">
-                <p>Viktor</p>
+                <h4 class="author-name">Viktor</h4>
+                <button id="all-user-articles">All articles</button>
             </div>
         </div>  
     </div>
@@ -45,6 +47,7 @@
         let postImgEl = postHolder.querySelector('img');
         let headingEl = postHolder.querySelector('h1');
         let postDesc = postHolder.querySelector('p');
+        let author = document.querySelector(".author-name");
 
         var params = new URLSearchParams(window.location.search);
         var postId = params.get('id');
@@ -65,14 +68,30 @@
 
             if(data!==null){
                 headingEl.textContent = data[0][1];
-                postDesc.textContent =data[0][3];
+                postDesc.textContent = data[0][3];
+                postImgEl.src = "../assets/images/"+data[0][4];
 
+                url = "http://localhost/blog-app/backend/index.php/get-name?user_id="+1;
+                const responseAUTH = await fetch(url);
+                if (!response.ok) {throw new Error('Error');}
+
+                let nameData = await responseAUTH.json();
+
+                console.log(nameData);
+
+                //author.textContent = ;
             }
 
         } catch (error) {
             console.error('Error:', error);
         }
 
+        let allUserArticlesBTN = document.getElementById("all-user-articles");
+
+        allUserArticlesBTN.addEventListener("click",(e)=>{
+            e.preventDefault();
+            window.location.href = '../pages/userBlog.html';
+        })
      })
 </script>
    

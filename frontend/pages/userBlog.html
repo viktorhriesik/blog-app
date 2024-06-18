@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="nav-holder">
+        
         <nav class="navigation">
             <img src="../assets/images/logo.png" alt="logo"></img>
             
@@ -17,7 +18,7 @@
                 <a class="add" href="addPost.html">Add Post</a>
             </div>
     
-            <h3 id="log-out" class="log-out">Log out</h3>
+            <h3>Log out</h3>
         </nav>
     </div>
     
@@ -25,6 +26,7 @@
     <div class="posts-holder">
         
         <div class="posts">
+            
         </div>
 
     </div>
@@ -34,11 +36,28 @@
     <script>
         document.addEventListener('DOMContentLoaded', async (event) => {
             
-            let epxlore = document.getElementById('explore');
-            epxlore.setAttribute('style', ' text-decoration: overline;');
-        
+            function getSessionCookie(name) {
+                const cookieString = document.cookie;
+                const cookies = cookieString.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Check if this cookie is the one we're looking for
+                    if (cookie.startsWith(name + '=')) {
+                        return cookie.substring(name.length + 1);
+                    }
+                }
+                // Cookie not found
+                return null;
+            }
 
-            let url = "http://localhost/blog-app/backend/index.php/get-all";
+            let epxlore = document.getElementById('my-blog');
+            epxlore.setAttribute('style', ' text-decoration: overline;');
+            
+            let user_id = getSessionCookie("user_id");
+
+            console.log(user_id);
+
+            let url = "http://localhost/blog-app/backend/index.php/get-user-posts?user_id="+user_id;
             
             let postsHolder = document.querySelector('.posts');
 
@@ -48,15 +67,16 @@
 
                 if (!response.ok) {throw new Error('Error');}
 
-                const allPostsData = await response.json();
+                const allUserPostsData = await response.json();
 
-                allPostsData.forEach(post => {
+                console.log(allUserPostsData);
+                allUserPostsData.forEach(post => {
                     console.log(post);
                     var newHTML = "<div class='post'><img src='../assets/images/"+post[4]+"'> <div class='post-txt'><h1>"+post[1]+"</h1><p>"+post[2]+"</p><div><h6>Viktor</h6></div><button class='read-more-btn' id='"+post[0]+"'>Read full article</button></div></div>";
                     postsHolder.innerHTML += newHTML;
                 });
 
-            } catch (error) {
+            }catch (error) {
             console.error('Error:', error);
             }
 
@@ -65,7 +85,6 @@
             articleBtn.forEach( function(button) {
   
                 button.addEventListener('click',  async (b) => {
-                    //console.log(button.id);
                     window.location.href = "../pages/post.html?id="+button.id;
          
                 });

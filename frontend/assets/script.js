@@ -3,6 +3,8 @@ const logInForm = document.getElementById('log-in-form');
 const registerForm = document.getElementById('register-form');
 const addPostForm = document.getElementById('add-post-form');
 const addPostBtn = document.getElementById('add-post-btn');
+const myBlogBtn = document.getElementById('my-blog');
+const logOutBtn = document.querySelector('.log-out');
 
 
 function setSessionCookie(name, value, days) {
@@ -157,6 +159,26 @@ if(addPostForm!==null){
       });
 
       
+  })
+}
+
+if(myBlogBtn!==null){
+  myBlogBtn.addEventListener("click",(event)=>{
+    event.preventDefault();
+    window.location.href = '../pages/userBlog.html';
+  });
+}
+
+if(logOutBtn!==null){
+  logOutBtn.addEventListener("click",(event)=>{
+    event.preventDefault();
+
+    function deleteCookie(name) {
+      document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    }
+
+    deleteCookie("user_id");
+    window.location.href="../pages/login.html";
   })
 }
 

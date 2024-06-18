@@ -26,16 +26,24 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
         $post->getAllPosts();
     }
 
+    if(str_contains($_SERVER['REQUEST_URI'],"/get-user-posts")){
+        if(isset($_GET['user_id']))
+        {
+            $post->getAllUserPosts($_GET['user_id']);
+        }
+    }
+
     if(str_contains($_SERVER['REQUEST_URI'],"/get-post")){
         //$status = array("status"=>false);
         
         if(isset($_GET['id']))
         {
             $postData = $post->getPostData($_GET['id']);
-            //$postData = json_encode($postData);
             echo $postData;
         }
     }
+
+
 }
 
 ?>

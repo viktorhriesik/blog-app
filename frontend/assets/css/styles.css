@@ -4,7 +4,7 @@
     font-family: 'Poppins';
 }
 body{
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(137, 210, 246, 0.053);
     display: flex;
     flex-direction: column;
  }
@@ -69,7 +69,8 @@ nav .btn{
 .navigation{
     position: relative;
     color: rgb(0, 0, 0);
-    background-color: rgba(255, 255, 255, 0.145);
+    background-color: rgba(255, 255, 255, 0.579);
+    border-radius: 5px;
     background-size: cover;
     background-position: center;
     height: 15vh;
@@ -80,14 +81,15 @@ nav .btn{
     justify-content: space-between;
 }
 .navigation h3{
-padding:3px;
+background-color:#36358a(255, 255, 255, 0.245);
+padding:3px 10px;
 border-radius: 12px;
 margin-right: 5%;
 color: rgb(0, 0, 0);
-background-color:#29286e(255, 255, 255, 0.245);
+
 }
 .navigation h3:hover{
-    color: rgb(247, 247, 247);
+    color:#ffffff;
     background-color:#29286e;
     cursor: pointer;
     transition: all 0.5s ease;
@@ -183,12 +185,12 @@ nav .links a:hover{
 }
 .post{
     
-    background-color: rgba(70, 85, 162, 0);
+    background-color: rgb(255, 255, 255);
     width: 30%;
     padding: 0px;
     height: auto;
     border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.559);
     border-bottom-right-radius:30px;
     border-top-left-radius:30px;
     margin:20px;
@@ -240,12 +242,12 @@ nav .links a:hover{
     border: 0;
     width: 80%;
     color: rgb(37, 45, 47);
-    
+    border: #29286e 2px solid;
     color: white;
     background-color: rgb(33, 51, 99);
 }
 .post button:hover{
-    border: #29286e 2px solid;
+    
     background-color: whitesmoke;
     color: #29286e;
     cursor: pointer;
@@ -260,17 +262,25 @@ nav .links a:hover{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 10%;
+    margin-top: 3%;
+    padding-bottom: 5%;
     width: 100%;
  }
  .holder h2{
-    color: white;
-    margin-bottom: 40px;
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.471);
+    padding: 2%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+ }
+ .add-post-form label{
+    color: black;
  }
  .add-post-form{
-    background-color: rgba(255, 255, 255, 0.274);
+    background-color: rgba(255, 255, 255, 0.471);
     border-radius: 20px;
-    padding: 2%;
+    padding: 1%;
     width: 50%;
     display: flex;
     align-items: center;
@@ -298,6 +308,7 @@ nav .links a:hover{
     cursor: pointer;
  }
  .post-holder{
+    height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -305,9 +316,9 @@ nav .links a:hover{
     padding-top: 1vw;
  }
  .article{
-
     display: flex;
     width: 90%;
+    height: 100%;
     padding: 10px;
     justify-content: center;
     flex-direction: row;
@@ -320,29 +331,41 @@ nav .links a:hover{
     padding-bottom: 5%;
  }
  .article-content{
-    width: 80%;
-    padding-left:  5vw;
-    padding-top: 20px;
-    padding-right: 5vw;
+    background-color: white;
+    border: 1px solid #dddddd00;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.158);
+    width: 70%;
+    padding: 10px 20px;
+    padding-right: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-top-left-radius: 20px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
     margin-right: 20px;
-    border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     
  }
+ .article-content p{
+   width: 80%;
+   padding: 0px;
+ }
+ .article-content h1{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    font-size: 2rem;
+ }
  .article-content img{
-    
-    box-shadow: 0 0 10px rgba(22, 22, 22, 0.5);
-    width: 70%;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    box-shadow: 0 0 10px rgba(22, 22, 22, 0.825);
+    width: 80%;
     margin-bottom: 2%;
  }
 
  .author{
-    background-color: rgba(255, 255, 255, 0.111);
+    background-color: rgb(255, 255, 255);
     margin-top: 1px;
     width: 25vw;
     height: 40vh;
@@ -350,9 +373,11 @@ nav .links a:hover{
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid #dddddd00;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.158);
     border-top-right-radius:30px;
+    border-top-left-radius:30px;
+    padding:3% 0%;
  }
  .author img{
     display: flex;
@@ -361,4 +386,24 @@ nav .links a:hover{
  }
  .author p {
     font-size: 1rem;
+ }
+ .author h4{
+    margin: 10px 10px;
+ }
+ .author button{
+    margin: 10px 0px;
+    width: 60%;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    background-color: #29286e;
+    border: 2px solid #29286e;
+    transition: all 0.5 ease;
+ }
+ .author button:hover{
+    cursor: pointer;
+    color:  #29286e;
+    background-color:white;
+
  }

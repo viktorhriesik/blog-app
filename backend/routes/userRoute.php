@@ -46,5 +46,16 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 }
 
 
+if($_SERVER['REQUEST_METHOD']=="GET"){
+   
+    if(str_contains($_SERVER['REQUEST_URI'],"/get-name")){
+        
+        if(isset($_GET['user_id']))
+        {
+           $post->getName($_GET['user_id']);
+        }
+    }
+}
+
 
 ?>
